@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -p "Enter Starting Year: " start
+read -p "Enter Ending Year: " end
+
+count=0
+echo "Leap Years Between $start and $end:"
+
+for (( year=$start; year<=$end; year++ )); do
+    if (( (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) )); then
+        echo "$year"
+        ((count++))
+    fi
+done
+
+echo "Total Leap Years: $count"
